@@ -7,9 +7,11 @@ import generateJson from '../services/ImageList';
 
 const photos = generateJson();
 var cards = [];
-
+var count = 1;
 photos.forEach((element) => {
-    cards.push(<Card url={element.photo} textTitle={element.textTitle} textDescription={element.textDescription}/>);
+    
+    cards.push(<Card url={element.photo} textTitle={element.textTitle} textDescription={element.textDescription} key={count}/>);
+    count++
 });
 
 

@@ -1,28 +1,14 @@
-import React, { Component } from 'react';
-import { LoremIpsum } from 'lorem-ipsum';
+import React from 'react';
 
-const lorem = new LoremIpsum({
-    sentencesPerParagraph: {
-      max: 8,
-      min: 4
-    },
-    wordsPerSentence: {
-      max: 16,
-      min: 4
-    }
-  });
 
-  const id = Math.trunc(Math.random() * (1084 - 1) + 1);
-  const url = `https://picsum.photos/id/${id}/638/500.jpg `;
-  const textTitle = lorem.generateWords(2);
-  const textDescription = lorem.generateWords(5);
-  
-
+function Image({url}) {
+  return <img loading='lazy' className="rounded-t-lg" src={url} alt="" />;
+}
 class Card extends React.Component {
     render() {
       return <><div className=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
-          <img className="rounded-t-lg" src={this.props.url} alt="" />
+      <Image url={this.props.url}/>
       </a>
       <div className="p-5">
           <a href="#">
